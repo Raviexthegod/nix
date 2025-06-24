@@ -27,6 +27,19 @@
     options = "--delete-older-than 30d";
   };
 
+  system.autoUpgrade = {
+    allowReboot = true;
+    enable = true;
+    dates = "daily";
+    flake = "github:Raviexthegod/nix";
+    operation = "switch";
+    persistent = true;
+    rebootWindow = { lower = "01:00"; upper = "05:00"; };
+    upgrade = true;
+  };
+
+
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.initrd.nix-store-veritysetup.enable = true;
