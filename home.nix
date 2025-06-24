@@ -25,31 +25,12 @@
         pkgs.bat-extras.batgrep
         pkgs.bat-extras.batman
         pkgs.ripgrep
-        pkgs.alacritty
-        pkgs.alacritty-theme
     ];
 
     programs.pay-respects.enable = true;
     programs.pay-respects.enableZshIntegration = true;
     programs.zoxide.enable = true;
     programs.zoxide.enableZshIntegration = true;
-    programs.alacritty = {
-        enable = true;
-        settings = {
-          window.dimensions = {
-            lines = 3;
-            columns = 200;
-          };
-          keyboard.bindings = [
-            {
-              key = "K";
-              mods = "Control";
-              chars = "\\u000c";
-            }
-          ];
-        }; 
-    };
-
     programs.zsh = {
         enable = true;
         completionInit = true;
@@ -76,7 +57,7 @@
             ls = "eza -lah";
             cat = "bat";
             cd = "z";
-            fr = "nh os switch --hostname Icy-nix --update";
+            fr = "nh os switch /home/raviex/.dotfiles --hostname Icy-Nix --update";
             man = "batman";
             grep = "batgrep";
     };

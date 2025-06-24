@@ -15,6 +15,17 @@
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
+  # Define flake automations
+  nix.optimise = {
+    automatic = true;
+    dates = "weekly";
+  };
+  nix.gc = {
+    automatic = true;
+    persistent = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -70,10 +81,6 @@
 
   programs.nh = {
     enable = true;
-    clean = {
-      enable = true;
-      extraArgs = "--keep-since 7d --keep 5";
-    };
     flake = "/home/raviex/.dotfiles";
   };
 
