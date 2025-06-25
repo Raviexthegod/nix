@@ -167,6 +167,8 @@
     kdePackages.kdeplasma-addons
     atlauncher
     modrinth-app
+    prismlauncher
+    lutris
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
