@@ -16,7 +16,7 @@
     };
 
   fileSystems."/mnt/games" = {
-      device = "/dev/nvme0n1";
+      device = "/dev/nvme0n1p1";
       fsType = "btrfs";
       options = [ "nofail" ];
   };
