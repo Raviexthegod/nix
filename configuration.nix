@@ -143,6 +143,8 @@
 
   services.flatpak.enable = true;
 
+  programs.partition-manager.enable = true;
+
   programs.kdeconnect.enable = true;
   programs.zsh.enable = true;
 
@@ -157,10 +159,14 @@
     nvd
     nixd
     nixos-generators
+    libreoffice
+    obsidian
     vesktop
     flatpak
     kdePackages.wallpaper-engine-plugin
     kdePackages.kdeplasma-addons
+    atlauncher
+    modrinth-app
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
