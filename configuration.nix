@@ -38,7 +38,6 @@
     upgrade = true;
   };
 
-
   # Define cpu freqency governor
   powerManagement.enable = true;
   powerManagement.cpuFreqGovernor = "performance";
@@ -46,9 +45,6 @@
   # Define what documentation is enabled.
   documentation.dev.enable = true;
   documentation.nixos.includeAllModules = true;
-
-
-
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -110,7 +106,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -140,7 +135,6 @@
         shell = pkgs.zsh;
     };
 
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   programs.appimage.binfmt = true;
@@ -151,9 +145,8 @@
   };
 
   services.flatpak.enable = true;
-
   programs.partition-manager.enable = true;
-
+  programs.nix-ld.enable = true;
   programs.kdeconnect.enable = true;
   programs.zsh.enable = true;
 
