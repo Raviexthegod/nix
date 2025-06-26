@@ -1,19 +1,19 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports =[
+     (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/4f53d250-fa33-4430-8c11-2c0b7494d15f";
+  fileSystems."/" ={
+      device = "/dev/disk/by-uuid/4f53d250-fa33-4430-8c11-2c0b7494d15f";
       fsType = "ext4";
-    };
+  };
 
   fileSystems."/mnt/games" = {
       device = "/dev/nvme0n1p1";
@@ -21,15 +21,37 @@
       options = [ "nofail" ];
   };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/FAEC-908D";
+  fileSystems."/boot" ={ 
+      device = "/dev/disk/by-uuid/FAEC-908D";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
-    };
+  };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/42f1a96a-1f22-426a-9ad3-f96b3cccb285"; }
-    ];
+  swapDevices =[ { device = "/dev/disk/by-uuid/42f1a96a-1f22-426a-9ad3-f96b3cccb285"; }
+  ];
+
+
+  # Enable Logitech Wireless Devices
+  hardware.logitech.enable = true;
+  hardware.logitech.enableGraphical = true;
+
+  # Enable bluetooth support
+  hardware.bluetooth.enable = true;
+
+  # Configure CPU
+  hardware.cpu.amd.ryzen-smu.enable = true;
+  hardware.cpu.amd.sev.enable = true;
+  hardware.cpu.amd.sevGuest.enable = true;
+  hardware.cpu.x86.msr.enable = true;
+
+  # Configure GPU
+  hardware.amdgpu.initrd.enable = true;
+  hardware.amdgpu.amdvlk = {
+    enable = true;
+    support32Bit.enable = true;
+  };
+  hardware.amdgpu.opencl.enable = true;
+
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
