@@ -6,10 +6,10 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+      };
     };
-  };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
 
     nixosConfigurations = {
       Icy-Nix = nixpkgs.lib.nixosSystem {
@@ -24,9 +24,7 @@
             home-manager.users.raviex = ./home.nix;
           }
         ];
-
       };
     };
-
   };
 }

@@ -32,8 +32,8 @@
 
 
   # Enable Logitech Wireless Devices
-  hardware.logitech.enable = true;
-  hardware.logitech.enableGraphical = true;
+  hardware.logitech.wireless.enable = true;
+  hardware.logitech.wireless.enableGraphical = true;
 
   # Enable bluetooth support
   hardware.bluetooth.enable = true;

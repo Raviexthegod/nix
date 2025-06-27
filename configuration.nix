@@ -131,7 +131,7 @@
         isNormalUser = true;
         isSystemUser = false;
         description = "Xavier Coffey";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = [ "networkmanager" "wheel" "vboxusers" ];
         shell = pkgs.zsh;
     };
 
