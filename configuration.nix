@@ -144,6 +144,10 @@
     openFirewall = true;
   };
 
+  # Virtualization
+  virtualisation.vmware.host.enable = true;
+  virtualisation.waydroid.enable = true;
+
   services.flatpak.enable = true;
   programs.partition-manager.enable = true;
   programs.nix-ld.enable = true;
