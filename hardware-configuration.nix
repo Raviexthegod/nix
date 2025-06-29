@@ -16,7 +16,7 @@
   };
 
   fileSystems."/mnt/games" = {
-      device = "/dev/nvme0n1p1";
+      device = "/dev/nvme1n1p1";
       fsType = "btrfs";
       options = [ "nofail" ];
   };
@@ -34,6 +34,9 @@
   # Enable Logitech Wireless Devices
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true;
+
+  # Enable Corsair drivers
+  hardware.ckb-next.enable = true;
 
   # Enable bluetooth support
   hardware.bluetooth.enable = true;

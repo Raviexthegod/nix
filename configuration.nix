@@ -145,14 +145,17 @@
   };
 
   # Virtualization
-  virtualisation.virtualbox.host.enable = true;
   virtualisation.waydroid.enable = true;
+
+  # Enable UEFI support for Qemu
+  systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
 
   services.flatpak.enable = true;
   programs.partition-manager.enable = true;
   programs.nix-ld.enable = true;
   programs.kdeconnect.enable = true;
   programs.zsh.enable = true;
+  programs.streamcontroller.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -167,6 +170,7 @@
     nixos-generators
     libreoffice
     obsidian
+    openrgb-with-all-plugins
     vesktop
     flatpak
     kdePackages.wallpaper-engine-plugin
@@ -175,6 +179,7 @@
     modrinth-app
     prismlauncher
     lutris
+    qemu
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
