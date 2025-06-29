@@ -16,7 +16,7 @@
   };
 
   fileSystems."/mnt/games" = {
-      device = "/dev/nvme1n1p1";
+      device = "/dev/nvme0n1p1";
       fsType = "btrfs";
       options = [ "nofail" ];
   };
@@ -40,12 +40,6 @@
 
   # Enable bluetooth support
   hardware.bluetooth.enable = true;
-
-  # Configure CPU
-  hardware.cpu.amd.ryzen-smu.enable = true;
-  hardware.cpu.amd.sev.enable = true;
-  hardware.cpu.amd.sevGuest.enable = true;
-  hardware.cpu.x86.msr.enable = true;
 
   # Configure GPU
   hardware.amdgpu.initrd.enable = true;

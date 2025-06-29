@@ -27,6 +27,13 @@
         pkgs.ripgrep
     ];
 
+    dconf.settings = {
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
+    };
+  };
+
     programs.pay-respects.enable = true;
     programs.pay-respects.enableZshIntegration = true;
     programs.zoxide.enable = true;

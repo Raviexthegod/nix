@@ -131,7 +131,7 @@
         isNormalUser = true;
         isSystemUser = false;
         description = "Xavier Coffey";
-        extraGroups = [ "networkmanager" "wheel" "vboxusers" ];
+        extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
         shell = pkgs.zsh;
     };
 
@@ -150,6 +150,7 @@
   # Enable UEFI support for Qemu
   systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
 
+  # Enable programs and services
   services.flatpak.enable = true;
   programs.partition-manager.enable = true;
   programs.nix-ld.enable = true;
@@ -157,12 +158,32 @@
   programs.zsh.enable = true;
   programs.streamcontroller.enable = true;
 
+  # enable QEMU frontend
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["raviex"];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+  virtualisation.libvirtd.qemu ={
+    package = pkgs.qemu_kvm;
+    runAsRoot = true;
+    swtpm.enable = true;
+    ovmf = {
+      enable = true;
+      packages = [(pkgs.OVMF.override {
+        secureBoot = true;
+        tpmSupport = true;
+      }).fd];
+    };
+  };
+  
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vscode
     wget
     brave
+    bottles
     nixfmt-rfc-style
     nix-output-monitor
     nvd
@@ -181,6 +202,7 @@
     lutris
     qemu
     quickemu
+    swtpm
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
