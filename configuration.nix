@@ -180,6 +180,7 @@
     prismlauncher
     lutris
     qemu
+    quickemu
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
