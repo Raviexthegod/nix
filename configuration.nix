@@ -90,7 +90,11 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.autoNumlock = true;
+  services.displayManager.sddm.enableHidpi = true;
+  services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enableQt5Integration = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -118,15 +122,9 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
+  # Ser default user shell to ZSH
   users.defaultUserShell = pkgs.zsh;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -134,7 +132,7 @@
         isNormalUser = true;
         isSystemUser = false;
         description = "Xavier Coffey";
-        extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+        extraGroups = [ "networkmanager" "wheel" "libvirtd" "gamemode" ];
         shell = pkgs.zsh;
     };
 
@@ -196,6 +194,7 @@
     obsidian
     openrgb-with-all-plugins
     vesktop
+    vkbasalt-cli
     flatpak
     kdePackages.wallpaper-engine-plugin
     kdePackages.kdeplasma-addons

@@ -25,6 +25,8 @@
         pkgs.bat-extras.batgrep
         pkgs.bat-extras.batman
         pkgs.ripgrep
+        pkgs.mangohud
+        pkgs.mangojuice
     ];
 
     dconf.settings = {
@@ -33,7 +35,10 @@
       uris = ["qemu:///system"];
     };
   };
-
+    programs.nix-index.enable = true;
+    programs.nix-index.enableZshIntegration = true;
+    programs.nix-your-shell.enable = true;
+    programs.nix-your-shell.enableZshIntegration = true;
     programs.pay-respects.enable = true;
     programs.pay-respects.enableZshIntegration = true;
     programs.zoxide.enable = true;
