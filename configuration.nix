@@ -5,13 +5,16 @@
 { pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./Steam.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./Steam.nix
+  ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
@@ -34,14 +37,17 @@
     flake = "github:Raviexthegod/nix";
     operation = "switch";
     persistent = true;
-    rebootWindow = { lower = "01:00"; upper = "05:00"; };
+    rebootWindow = {
+      lower = "01:00";
+      upper = "05:00";
+    };
     upgrade = true;
   };
 
   # Define cpu freqency governor
   powerManagement.enable = true;
   powerManagement.cpuFreqGovernor = "performance";
-  
+
   # Define what documentation is enabled.
   documentation.dev.enable = true;
   documentation.nixos.includeAllModules = true;
@@ -129,12 +135,17 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.raviex = {
-        isNormalUser = true;
-        isSystemUser = false;
-        description = "Xavier Coffey";
-        extraGroups = [ "networkmanager" "wheel" "libvirtd" "gamemode" ];
-        shell = pkgs.zsh;
-    };
+    isNormalUser = true;
+    isSystemUser = false;
+    description = "Xavier Coffey";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+      "gamemode"
+    ];
+    shell = pkgs.zsh;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -161,19 +172,21 @@
 
   # enable QEMU frontend
   programs.virt-manager.enable = true;
-  users.groups.libvirtd.members = ["raviex"];
+  users.groups.libvirtd.members = [ "raviex" ];
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
-  virtualisation.libvirtd.qemu ={
+  virtualisation.libvirtd.qemu = {
     package = pkgs.qemu_kvm;
     runAsRoot = true;
     swtpm.enable = true;
     ovmf = {
       enable = true;
-      packages = [(pkgs.OVMF.override {
-        secureBoot = true;
-        tpmSupport = true;
-      }).fd];
+      packages = [
+        (pkgs.OVMF.override {
+          secureBoot = true;
+          tpmSupport = true;
+        }).fd
+      ];
     };
   };
 
@@ -207,11 +220,11 @@
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-   programs.mtr.enable = true;
-   programs.gnupg.agent = {
+  programs.mtr.enable = true;
+  programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-   };
+  };
 
   # List services that you want to enable:
 
@@ -221,10 +234,16 @@
   networking.firewall = {
     enable = true;
     allowedTCPPortRanges = [
-      { from = 1714; to = 1764;} # KDE Connect
+      {
+        from = 1714;
+        to = 1764;
+      } # KDE Connect
     ];
     allowedUDPPortRanges = [
-      { from = 1714; to = 1764;} # KDE Connect
+      {
+        from = 1714;
+        to = 1764;
+      } # KDE Connect
     ];
   };
 

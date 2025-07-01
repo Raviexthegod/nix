@@ -1,4 +1,5 @@
-{  pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.steam = {
     enable = true;
     extest.enable = true;
@@ -19,7 +20,7 @@
       general = {
         renice = 10;
       };
-    
+
       # Warning: GPU optimisations have the potential to damage hardware
       gpu = {
         apply_gpu_optimisations = "accept-responsibility";
@@ -31,12 +32,11 @@
         park_cores = "yes";
         pin_cores = "yes";
       };
-    
+
       custom = {
         start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
         end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
       };
-    }
-    ;
+    };
   };
 }
