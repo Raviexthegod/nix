@@ -26,9 +26,13 @@
     pkgs.bat-extras.batgrep
     pkgs.bat-extras.batman
     pkgs.ripgrep
-    pkgs.mangohud
     pkgs.mangojuice
   ];
+
+  programs.mangohud = {
+    enable = true;
+    enableSessionWide = true;
+  };
 
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {

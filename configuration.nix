@@ -44,10 +44,6 @@
     upgrade = true;
   };
 
-  nixpkgs.overlays = [
-    inputs.millennium.overlays.default
-  ];
-
   # Define cpu freqency governor
   powerManagement.enable = true;
   powerManagement.cpuFreqGovernor = "performance";
