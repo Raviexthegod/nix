@@ -164,8 +164,58 @@
 
   # Enable programs and services
   services.flatpak.enable = true;
+  services.monado = {
+    enable = true;
+    defaultRuntime = true;
+  };
+  systemd.user.services.monado.environment = {
+    STEAMVR_LH_ENABLE = "1";
+    XRT_COMPOSITOR_COMPUTE = "1";
+  };
   programs.partition-manager.enable = true;
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      # List by default
+      zlib
+      zstd
+      stdenv.cc.cc
+      curl
+      openssl
+      attr
+      libssh
+      bzip2
+      libxml2
+      acl
+      libsodium
+      util-linux
+      xz
+      systemd
+      nss_latest
+      nspr
+      dbus
+      at-spi2-atk
+      cups
+      libdrm
+      glib
+      gtk2
+      gtk3
+      pango
+      cairo
+      libgbm
+      expat
+      libxkbcommon
+      alsa-lib-with-plugins
+      xorg.libX11
+      xorg.libXcomposite
+      xorg.libXdamage
+      xorg.libXext
+      xorg.libXfixes
+      xorg.libXrandr
+      xorg.libxcb
+    ];
+  };  
+
   programs.kdeconnect.enable = true;
   programs.zsh.enable = true;
   programs.streamcontroller.enable = true;
@@ -218,6 +268,8 @@
     swtpm
     heroic
     vulkan-tools
+    bs-manager
+    protonplus
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
