@@ -10,7 +10,7 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
-
+  boot.supportedFilesystems = [ "ntfs" ];
   boot.initrd.availableKernelModules = [
     "nvme"
     "xhci_pci"
@@ -28,10 +28,10 @@
     fsType = "ext4";
   };
 
-  fileSystems."/mnt/games" = {
+  fileSystems."/mnt/windows" = {
     device = "/dev/disk/by-uuid/30f61077-5c60-4857-9243-02f4970ebe51";
-    fsType = "btrfs";
-    options = [ "nofail" ];
+    fsType = "ntfs-3g";
+    options = [ "nofail" "rw" ];
   };
 
   fileSystems."/boot" = {

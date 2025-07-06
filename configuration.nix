@@ -56,11 +56,19 @@
   documentation.nixos.includeAllModules = true;
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+
+    systemd-boot = {
+      enable = true;
+      edk2-uefi-shell.enable = true;
+      edk2-uefi-shell.sortKey = "z_edk2";
+      memtest86.enable = true;
+    };
+  };
   boot.initrd.nix-store-veritysetup.enable = true;
   boot.initrd.systemd.dmVerity.enable = true;
   boot.initrd.systemd.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -276,6 +284,7 @@
     neofetch
     zip
     ventoy-full-qt
+    sbctl
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
