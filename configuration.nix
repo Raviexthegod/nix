@@ -45,7 +45,7 @@
   };
 
   nixpkgs.config.permittedInsecurePackages = [
-    "ventoy-qt-1.1.05"
+    "ventoy-qt5-1.1.05"
   ];
   # Define cpu freqency governor
   powerManagement.enable = true;
