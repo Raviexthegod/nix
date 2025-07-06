@@ -74,6 +74,7 @@
 
   # Set your time zone.
   time.timeZone = "America/New_York";
+  time.hardwareClockInLocalTime = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -271,6 +272,7 @@
     nexusmods-app-unfree
     neofetch
     zip
+    ventoy-full-qt
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
