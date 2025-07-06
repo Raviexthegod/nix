@@ -214,8 +214,7 @@
       xorg.libXrandr
       xorg.libxcb
     ];
-  };  
-
+  }; 
   programs.kdeconnect.enable = true;
   programs.zsh.enable = true;
   programs.streamcontroller.enable = true;
@@ -260,7 +259,6 @@
     kdePackages.wallpaper-engine-plugin
     kdePackages.kdeplasma-addons
     atlauncher
-    modrinth-app
     prismlauncher
     lutris
     qemu
@@ -270,6 +268,9 @@
     vulkan-tools
     bs-manager
     protonplus
+    nexusmods-app-unfree
+    neofetch
+    zip
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
