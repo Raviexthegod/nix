@@ -59,11 +59,12 @@
   boot.loader = {
     efi.canTouchEfiVariables = true;
 
-    systemd-boot = {
+    grub = {
       enable = true;
-      edk2-uefi-shell.enable = true;
-      edk2-uefi-shell.sortKey = "z_edk2";
-      memtest86.enable = true;
+      devices = [ "nodev" ];
+      efiSupport = true;
+      useOSProber = true;
+      default = "saved";
     };
   };
   boot.initrd.nix-store-veritysetup.enable = true;
@@ -175,6 +176,16 @@
   systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
 
   # Enable programs and services
+  services.tor = {
+    enable = true;
+    settings = {
+      UseBridges = "true";
+      ClientUseIPv4 = true;
+      ClientUseIPv6 = true;
+      ClientTransportPlugin = "obfs4 exec ${pkgs.obfs4}/bin/lyrebird";
+      Bridge = "obfs4 IP:ORPort [fingerprint]";
+    };
+  };
   services.flatpak.enable = true;
   services.monado = {
     enable = true;
@@ -285,6 +296,7 @@
     zip
     ventoy-full-qt
     sbctl
+    tor-browser-bundle-bin
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
