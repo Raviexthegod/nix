@@ -24,12 +24,13 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            ./configuration.nix
+            ./hosts/Icy-Nix/configuration.nix
+            ./modules/Steam.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.raviex = ./home.nix;
+              home-manager.users.raviex = ./hosts/Icy-Nix/home.nix;
             }
           ];
         };
