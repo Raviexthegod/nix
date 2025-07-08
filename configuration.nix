@@ -297,6 +297,8 @@
     ventoy-full-qt
     sbctl
     tor-browser-bundle-bin
+    cryptomator
+    ntfs3g
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
