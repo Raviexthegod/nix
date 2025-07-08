@@ -75,7 +75,7 @@
       ];
     };
     shellAliases = {
-      ls = "eza -lah";
+      ls = "eza -lah --git";
       cat = "bat";
       cd = "z";
       fr = "nh os switch /home/raviex/.dotfiles --hostname Icy-Nix --update";

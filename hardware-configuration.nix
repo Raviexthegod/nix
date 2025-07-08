@@ -29,7 +29,13 @@
   };
 
   fileSystems."/mnt/windows" = {
-    device = "/dev/disk/by-uuid/30f61077-5c60-4857-9243-02f4970ebe51";
+    device = "/dev/disk/by-partuuid/e13b5cc2-f0b0-45ba-9750-6b764ebd7dac";
+    fsType = "ntfs-3g";
+    options = [ "nofail" "rw" ];
+  };
+
+  fileSystems."/mnt/misc" = {
+    device = "/dev/by-uuid/727E517D00859166";
     fsType = "ntfs-3g";
     options = [ "nofail" "rw" ];
   };

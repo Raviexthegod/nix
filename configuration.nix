@@ -18,6 +18,10 @@
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
+  nixpkgs.overlays = [
+    inputs.millennium.overlays.default
+  ];
+
   # Define flake automations
   nix.optimise = {
     automatic = true;
