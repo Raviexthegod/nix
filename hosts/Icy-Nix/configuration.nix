@@ -12,12 +12,9 @@
     ../../modules/bluetooth.nix
     ../../modules/boot.nix
     ../../modules/fonts.nix
-    ../../modules/hyprland.nix
     ../../modules/nix.nix
     ../../modules/power.nix
     ../../modules/Steam.nix
-    ../../modules/tuigreet.nix
-    ../../modules/utils.nix
   ];
 
   # Define what documentation is enabled.
