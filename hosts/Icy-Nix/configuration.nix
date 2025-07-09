@@ -8,84 +8,23 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../../modules/audio.nix
+    ../../modules/bluetooth.nix
+    ../../modules/boot.nix
+    ../../modules/fonts.nix
+    ../../modules/hyprland.nix
+    ../../modules/nix.nix
+    ../../modules/power.nix
+    ../../modules/Steam.nix
+    ../../modules/tuigreet.nix
+    ../../modules/utils.nix
   ];
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-
-  nixpkgs.overlays = [
-    inputs.millennium.overlays.default
-  ];
-
-  # Define flake automations
-  nix.optimise = {
-    automatic = true;
-    dates = "weekly";
-  };
-  nix.gc = {
-    automatic = true;
-    persistent = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
-
-  system.autoUpgrade = {
-    allowReboot = true;
-    enable = true;
-    dates = "daily";
-    flake = "github:Raviexthegod/nix";
-    operation = "switch";
-    persistent = true;
-    rebootWindow = {
-      lower = "01:00";
-      upper = "05:00";
-    };
-    upgrade = true;
-  };
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "ventoy-qt5-1.1.05"
-  ];
-  # Define cpu freqency governor
-  powerManagement.enable = true;
-  powerManagement.cpuFreqGovernor = "performance";
 
   # Define what documentation is enabled.
   documentation.dev.enable = true;
   documentation.nixos.includeAllModules = true;
 
-  # Bootloader.
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-
-    grub = {
-      enable = true;
-      devices = [ "nodev" ];
-      efiSupport = true;
-      useOSProber = true;
-      default = "saved";
-    };
-  };
-  boot.initrd.nix-store-veritysetup.enable = true;
-  boot.initrd.systemd.dmVerity.enable = true;
-  boot.initrd.systemd.enable = true;
-
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   networking.hostName = "Icy-Nix"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -107,7 +46,6 @@
   };
 
   # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
@@ -129,23 +67,6 @@
     flake = "/home/raviex/.dotfiles";
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-  services.printing.cups-pdf.enable = true;
-  services.printing.openFirewall = true;
-  services.printing.startWhenNeeded = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
-
   # Ser default user shell to ZSH
   users.defaultUserShell = pkgs.zsh;
 
@@ -163,8 +84,7 @@
     shell = pkgs.zsh;
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+
   programs.appimage.binfmt = true;
   programs.appimage.enable = true;
   programs.alvr = {
@@ -189,11 +109,7 @@
       Bridge = "obfs4 IP:ORPort [fingerprint]";
     };
   };
-  services.flatpak.enable = true;
-  services.monado = {
-    enable = true;
-    defaultRuntime = true;
-  };
+
   systemd.user.services.monado.environment = {
     STEAMVR_LH_ENABLE = "1";
     XRT_COMPOSITOR_COMPUTE = "1";
@@ -317,28 +233,7 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  networking.firewall = {
-    enable = true;
-    allowedTCPPortRanges = [
-      {
-        from = 1714;
-        to = 1764;
-      } # KDE Connect
-    ];
-    allowedUDPPortRanges = [
-      {
-        from = 1714;
-        to = 1764;
-      } # KDE Connect
-    ];
-  };
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.05"; # DO NOT TOUCH
 
 }
