@@ -25,7 +25,6 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/Icy-Nix/configuration.nix
-            ./modules/Steam.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
