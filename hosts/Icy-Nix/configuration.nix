@@ -81,13 +81,9 @@
     shell = pkgs.zsh;
   };
 
-
+  # Enable appimages
   programs.appimage.binfmt = true;
   programs.appimage.enable = true;
-  programs.alvr = {
-    enable = true;
-    openFirewall = true;
-  };
 
   # Virtualization
   virtualisation.waydroid.enable = true;
@@ -99,7 +95,7 @@
   services.tor = {
     enable = true;
     settings = {
-      UseBridges = "true";
+      UseBridges = true;
       ClientUseIPv4 = true;
       ClientUseIPv6 = true;
       ClientTransportPlugin = "obfs4 exec ${pkgs.obfs4}/bin/lyrebird";
@@ -107,10 +103,6 @@
     };
   };
 
-  systemd.user.services.monado.environment = {
-    STEAMVR_LH_ENABLE = "1";
-    XRT_COMPOSITOR_COMPUTE = "1";
-  };
   programs.partition-manager.enable = true;
   programs.nix-ld = {
     enable = true;
@@ -215,6 +207,14 @@
     tor-browser-bundle-bin
     cryptomator
     ntfs3g
+    qgis
+    obs-studio
+    obs-studio-plugins.obs-vkcapture
+    freecad-wayland
+    warp-terminal
+    atuin
+    dust
+    tldr
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -224,8 +224,6 @@
     enable = true;
     enableSSHSupport = true;
   };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;

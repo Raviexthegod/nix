@@ -40,47 +40,64 @@
       uris = [ "qemu:///system" ];
     };
   };
-  programs.nix-index.enable = true;
-  programs.nix-index.enableZshIntegration = true;
-  programs.nix-your-shell.enable = true;
-  programs.nix-your-shell.enableZshIntegration = true;
-  programs.pay-respects.enable = true;
-  programs.pay-respects.enableZshIntegration = true;
-  programs.zoxide.enable = true;
-  programs.zoxide.enableZshIntegration = true;
-  programs.zsh = {
-    enable = true;
-    completionInit = true;
-    syntaxHighlighting.enable = true;
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-    ];
-    initContent = ''source ~/.p10k.zsh'';
-    oh-my-zsh = {
+
+  programs = {
+
+    nix-index = {
       enable = true;
-      plugins = [
-        "eza"
-        "git"
-        "sudo"
-        "vscode"
-        "node"
-        "fzf"
-        "systemadmin"
-        "systemd"
-        "aliases"
-      ];
+      enableZshIntegration = true;
     };
-    shellAliases = {
-      ls = "eza -lah --git";
-      cat = "bat";
-      cd = "z";
-      fr = "nh os switch /home/raviex/.dotfiles --hostname Icy-Nix --update";
-      man = "batman";
-      grep = "batgrep";
+
+    nix-your-shell = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    pay-respects = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    zsh = {
+      enable = true;
+      completionInit = true;
+      syntaxHighlighting.enable = true;
+      plugins = [
+        {
+          name = "powerlevel10k";
+          src = pkgs.zsh-powerlevel10k;
+          file = "/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        }
+      ];
+      initContent = ''source ~/.p10k.zsh'';
+      oh-my-zsh = {
+        enable = true;
+        plugins = [
+          "eza"
+          "git"
+          "sudo"
+          "vscode"
+          "node"
+          "fzf"
+          "systemadmin"
+          "systemd"
+          "aliases"
+          "zoxide"
+        ];
+      };
+      shellAliases = {
+        ls = "eza -lah --git";
+        cat = "bat";
+        cd = "z";
+        fr = "nh os switch /home/raviex/.dotfiles --hostname Icy-Nix --update";
+        man = "batman";
+        grep = "batgrep";
+      };
     };
   };
 

@@ -17,9 +17,9 @@
       nix-store-veritysetup.enable = true;
       systemd = {
         enable = true;
-        enableTpm2 = true;
+        tpm2.enable = true;
         dmVerity.enable = true;
-        
+        dbus.enable = true;
       };
     };
     kernelPackages = pkgs.linuxPackages_latest;

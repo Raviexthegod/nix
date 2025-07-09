@@ -1,19 +1,16 @@
 {pkgs, ...}: {
 
   services = {
+
+    # Enable Flatpak
     flatpak.enable = true;
-    monado = {
-      enable = true;
-      defaultRuntime = true;
-    };
+
+    # Enable CUPS to print documents.
+    printing.enable = true;
+    printing.cups-pdf.enable = true;
+    printing.openFirewall = true;
+    printing.startWhenNeeded = true;
   };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-  services.printing.cups-pdf.enable = true;
-  services.printing.openFirewall = true;
-  services.printing.startWhenNeeded = true;
-
 
 
 }
