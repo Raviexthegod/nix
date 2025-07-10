@@ -84,7 +84,6 @@
           "vscode"
           "node"
           "fzf"
-          "systemadmin"
           "systemd"
           "aliases"
           "zoxide"
