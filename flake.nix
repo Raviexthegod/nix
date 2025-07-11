@@ -33,6 +33,13 @@
             }
           ];
         };
+        Goblin-Archives = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/Goblin-Archives/configuration.nix
+          ];
+        };
       };
     };
 }
