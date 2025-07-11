@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -61,7 +61,7 @@
 
   programs.nh = {
     enable = true;
-    flake = "/home/raviex/.dotfiles";
+    flake = "github:Raviexthegod/nix#Icy-Nix";
   };
 
   # Ser default user shell to ZSH
@@ -187,7 +187,6 @@
     vesktop
     vkbasalt-cli
     flatpak
-    kdePackages.wallpaper-engine-plugin
     kdePackages.kdeplasma-addons
     atlauncher
     prismlauncher
