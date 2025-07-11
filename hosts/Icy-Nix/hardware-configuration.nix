@@ -35,7 +35,7 @@
   };
 
   fileSystems."/mnt/misc" = {
-    device = "/dev/by-uuid/727E517D00859166";
+    device = "/dev/disk/by-partuuid/01058ea6-ae64-438f-8591-6d7719bfacee";
     fsType = "ntfs-3g";
     options = [ "nofail" "rw" ];
   };
