@@ -216,6 +216,9 @@
     tldr
     kdePackages.plasma-integration
     spotify
+    jprofiler
+    visualvm
+    jetbrains.idea-community
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
