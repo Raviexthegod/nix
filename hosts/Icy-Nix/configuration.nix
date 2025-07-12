@@ -144,6 +144,8 @@
       xorg.libXfixes
       xorg.libXrandr
       xorg.libxcb
+      xorg_sys_opengl
+    
     ];
   }; 
   programs.kdeconnect.enable = true;
@@ -219,6 +221,7 @@
     jprofiler
     visualvm
     jetbrains.idea-community
+    tmux
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

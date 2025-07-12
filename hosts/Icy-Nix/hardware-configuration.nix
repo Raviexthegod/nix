@@ -60,7 +60,6 @@
     ckb-next.enable = true;
     bluetooth = {
       enable = true;
-      hsphfpd.enable = true;
       powerOnBoot = true;
     };
     amdgpu = {
