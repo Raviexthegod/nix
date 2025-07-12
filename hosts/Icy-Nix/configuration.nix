@@ -13,6 +13,7 @@
     ../../modules/boot.nix
     ../../modules/fonts.nix
     ../../modules/nix.nix
+    ../../modules/packages.nix
     ../../modules/power.nix
     ../../modules/Steam.nix
   ];
@@ -102,7 +103,6 @@
       Bridge = "obfs4 IP:ORPort [fingerprint]";
     };
   };
-
   programs.partition-manager.enable = true;
   programs.nix-ld = {
     enable = true;

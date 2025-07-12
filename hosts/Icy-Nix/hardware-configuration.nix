@@ -52,23 +52,28 @@
     { device = "/dev/disk/by-uuid/42f1a96a-1f22-426a-9ad3-f96b3cccb285"; }
   ];
 
-  # Enable Logitech Wireless Devices
-  hardware.logitech.wireless.enable = true;
-  hardware.logitech.wireless.enableGraphical = true;
-
-  # Enable Corsair drivers
-  hardware.ckb-next.enable = true;
-
-  # Enable bluetooth support
-  hardware.bluetooth.enable = true;
-
-  # Configure GPU
-  hardware.amdgpu.initrd.enable = true;
-  hardware.amdgpu.amdvlk = {
-    enable = true;
-    support32Bit.enable = true;
+  hardware = {
+    logitech = {
+      wireless.enable = true;
+      wireless.enableGraphical = true;
+    };
+    ckb-next.enable = true;
+    bluetooth = {
+      enable = true;
+      hsphfpd.enable = true;
+      powerOnBoot = true;
+    };
+    amdgpu = {
+      initrd.enable = true;
+      amdvlk = {
+        enable = true;
+        support32Bit.enable = true;
+        supportExperimental.enable = true;
+      };
+      legacySupport.enable = true;
+      opencl.enable = true;
+    };
   };
-  hardware.amdgpu.opencl.enable = true;
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

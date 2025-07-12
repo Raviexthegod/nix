@@ -9,13 +9,15 @@
       steamtinkerlaunch
     ];
     extraPackages = with pkgs; [
-      gamescope
       mangohud
       mangojuice
     ];
+    gamescopeSession.enable = true;
     protontricks.enable = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
     remotePlay.openFirewall = true;
   };
+
+  programs.gamemode.enable = true;
 }
