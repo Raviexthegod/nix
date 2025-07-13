@@ -222,6 +222,9 @@
     visualvm
     jetbrains.idea-community
     tmux
+    phoronix-test-suite
+    kdePackages.kde-cli-tools
+    kdePackages.qtstyleplugin-kvantum
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
