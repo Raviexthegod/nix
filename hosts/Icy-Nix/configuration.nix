@@ -212,7 +212,6 @@
     obs-studio
     obs-studio-plugins.obs-vkcapture
     freecad-wayland
-    warp-terminal
     atuin
     dust
     tldr
