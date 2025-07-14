@@ -78,6 +78,8 @@
       "wheel"
       "libvirtd"
       "gamemode"
+      "kvm"
+      "adbusers"
     ];
     shell = pkgs.zsh;
   };
@@ -93,6 +95,7 @@
   systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
 
   # Enable programs and services
+  services.fwupd.enable = true;
   services.tor = {
     enable = true;
     settings = {
@@ -104,6 +107,7 @@
     };
   };
   programs.partition-manager.enable = true;
+  programs.adb.enable = true;
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
@@ -221,9 +225,19 @@
     visualvm
     jetbrains.idea-community
     tmux
+    fwupd
     phoronix-test-suite
+    openssl
+    python314Full
+    flex
+    bc
+    bison
     kdePackages.kde-cli-tools
     kdePackages.qtstyleplugin-kvantum
+    kdePackages.sddm-kcm
+    kdePackages.ksystemlog
+    kdePackages.kcalc
+    kdePackages.kcolorscheme
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
