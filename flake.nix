@@ -40,6 +40,19 @@
             ./hosts/Goblin-Archives/configuration.nix
           ];
         };
+        bluenix = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs };
+          modules = [
+            ./hosts/bluenix/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.raviex = ./hosts/bluenix/home.nix
+            }
+          ];
+        }
       };
     };
 }
