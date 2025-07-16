@@ -102,7 +102,7 @@
         ls = "eza -lah --git";
         cat = "bat";
         cd = "z";
-        fr = "nh os switch /home/raviex/.dotfiles --hostname Icy-Nix --update";
+        fr = "nh os switch /home/raviex/.dotfiles --hostname bluenix --update";
         man = "batman";
         grep = "batgrep";
       };
