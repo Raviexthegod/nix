@@ -96,6 +96,12 @@
 
   # Enable programs and services
   services.fwupd.enable = true;
+  services.ollama = {
+    enable = true;
+    acceleration = "rocm";
+    loadModels = ["deepseek-r1:latest"];
+  };
+  services.open-webui.enable = true;
   services.tor = {
     enable = true;
     settings = {
