@@ -16,7 +16,7 @@
     ../../modules/nix.nix
     ../../modules/packages.nix
     ../../modules/power.nix
-    #../../modules/Steam.nix
+    ../../modules/Steam.nix
   ];
 
   # Define what documentation is enabled.
