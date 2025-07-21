@@ -30,13 +30,13 @@
   fileSystems."/mnt/windows" = {
     device = "/dev/disk/by-partuuid/e13b5cc2-f0b0-45ba-9750-6b764ebd7dac";
     fsType = "ntfs-3g";
-    options = [ "nofail" "rw" ];
+    options = [ "nofail" "rw" "uid=1000" "gid=1000" "dmask=007" "fmask=117"];
   };
 
   fileSystems."/mnt/misc" = {
     device = "/dev/disk/by-partuuid/01058ea6-ae64-438f-8591-6d7719bfacee";
     fsType = "ntfs-3g";
-    options = [ "nofail" "rw" ];
+    options = [ "nofail" "rw" "uid=1000" "gid=1000" "dmask=007" "fmask=117"];
   };
 
   fileSystems."/boot" = {
