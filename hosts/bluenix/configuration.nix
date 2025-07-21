@@ -154,7 +154,6 @@
   }; 
   programs.kdeconnect.enable = true;
   programs.zsh.enable = true;
-  programs.streamcontroller.enable = true;
 
   # enable QEMU frontend
   programs.virt-manager.enable = true;
@@ -223,7 +222,6 @@
     spotify
     jprofiler
     visualvm
-    jetbrains.idea-community
     tmux
     fwupd
     phoronix-test-suite
