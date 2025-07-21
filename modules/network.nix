@@ -9,7 +9,12 @@
         { from = 1714; to = 1764; } # KDE Connect
       ];
     };
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      wifi = {
+        backend = "wpa_supplicant";
+        powersave = true;
+      };
+    };
   };
-  systemd.services.NetworkManager-wait-online.enable = false;
 }
