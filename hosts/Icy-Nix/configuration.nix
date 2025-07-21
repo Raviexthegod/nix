@@ -89,8 +89,17 @@
   programs.appimage.enable = true;
 
   # Virtualization
-  virtualisation.waydroid.enable = true;
 
+  virtualisation = {
+
+    podman = {
+      enable = true;
+      dockerCompat = true;
+    };
+
+    waydroid.enable = true;
+  };
+  
   # Enable UEFI support for Qemu
   systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
 
@@ -182,6 +191,7 @@
     };
   };
 
+
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
     vscode
@@ -201,7 +211,10 @@
     flatpak
     kdePackages.kdeplasma-addons
     atlauncher
-    prismlauncher
+    (prismlauncher.override {
+      additionalPrograms = [ffmpeg];
+      additionalLibs = [libdecor];
+    })
     lutris
     qemu
     quickemu

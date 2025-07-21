@@ -44,11 +44,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1753120202,
-        "narHash": "sha256-Gvfna84KF6NiPcurjHcyRiRcK6qXhXlsdI2jGtXTN9M=",
+        "lastModified": 1753122599,
+        "narHash": "sha256-cRywQfHpiCEDROZMh+Q7NdLqN6q0py/pttC/vm+/px0=",
         "ref": "next",
-        "rev": "4b6244ada9e563ed51bab4072caf949ff359cac9",
-        "revCount": 1964,
+        "rev": "74ec5ee0a7b8306235ab12acda4a1f13dca99f33",
+        "revCount": 1965,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/SteamClientHomebrew/Millennium"
