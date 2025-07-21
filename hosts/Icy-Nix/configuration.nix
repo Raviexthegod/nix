@@ -112,6 +112,7 @@
       Bridge = "obfs4 IP:ORPort [fingerprint]";
     };
   };
+  programs.git.config = {pull.rebase = false;};
   programs.partition-manager.enable = true;
   programs.adb.enable = true;
   programs.nix-ld = {
