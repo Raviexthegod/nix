@@ -47,10 +47,10 @@
       themeFile = "GitHub_Dark_High_Contrast";
     };
 
-    mangohud = {
-      enable = true;
-      enableSessionWide = false;
-    };
+    #mangohud = {
+    #  enable = true;
+    #  enableSessionWide = false;
+    #};
 
     nix-index = {
       enable = true;
