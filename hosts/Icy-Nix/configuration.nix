@@ -80,6 +80,7 @@
       "gamemode"
       "kvm"
       "adbusers"
+      "wireshark"
     ];
     shell = pkgs.zsh;
   };
@@ -120,6 +121,12 @@
       ClientTransportPlugin = "obfs4 exec ${pkgs.obfs4}/bin/lyrebird";
       Bridge = "obfs4 IP:ORPort [fingerprint]";
     };
+  };
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark-qt;
+    dumpcap.enable = true;
+    usbmon.enable = true;
   };
   programs.git.config = {pull.rebase = false;};
   programs.partition-manager.enable = true;
