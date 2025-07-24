@@ -261,7 +261,7 @@
     spice-protocol
     win-virtio
     win-spice
-    gnome.adwaita-icon-theme
+   adwaita-icon-theme
     bison
     kdePackages.kde-cli-tools
     kdePackages.qtstyleplugin-kvantum
