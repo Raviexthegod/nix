@@ -223,6 +223,8 @@
     quickemu
     swtpm
     heroic
+    unixtools.net-tools
+    unixtools.netstat
     vulkan-tools
     bs-manager
     protonplus
