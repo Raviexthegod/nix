@@ -3,6 +3,7 @@
   programs.steam = {
     enable = true;
     extest.enable = true;
+    package = pkgs.steam-millennium;
     extraCompatPackages = with pkgs; [
       proton-ge-bin
       steamtinkerlaunch

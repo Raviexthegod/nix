@@ -189,14 +189,10 @@
     swtpm.enable = true;
     ovmf = {
       enable = true;
-      packages = [
-        (pkgs.OVMF.override {
-          secureBoot = true;
-          tpmSupport = true;
-        }).fd
-      ];
+      packages = [pkgs.OVMFFull.fd];
     };
   };
+  services.spice-vdagentd.enable = true;
 
 
   # List packages installed in system profile. To search, run:
@@ -256,6 +252,14 @@
     python314Full
     flex
     bc
+    distrobox
+    virt-viewer
+    spice-gtk
+    spice
+    spice-protocol
+    win-virtio
+    win-spice
+    gnome.adwaita-icon-theme
     bison
     kdePackages.kde-cli-tools
     kdePackages.qtstyleplugin-kvantum
