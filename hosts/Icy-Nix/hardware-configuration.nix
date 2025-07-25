@@ -75,7 +75,7 @@
     printers = {
       ensurePrinters = [
         {
-          name = "Brother HL-2270DW Series";
+          name = "Brother_HL-2270DW_Series";
           location = "Home";
           deviceUri = "usb://Brother/HL-2270DW%20series?serial=E2N509061";
           model = "drv://sample.drv/generic.ppd";
@@ -85,7 +85,7 @@
           };
         }
       ];
-      ensureDefaultPrinter = "Brother HL-2270DW Series";
+      ensureDefaultPrinter = "Brother_HL-2270DW_Series";
     };
   };
 
