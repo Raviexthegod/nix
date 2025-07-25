@@ -255,6 +255,7 @@
     flex
     bc
     distrobox
+    usbutils
     virt-viewer
     spice-gtk
     spice
