@@ -72,6 +72,21 @@
       legacySupport.enable = true;
       opencl.enable = true;
     };
+    printers = {
+      ensurePrinters = [
+        {
+          name = "Brother HL-2270DW Series";
+          location = "Home";
+          deviceUri = "usb://Brother/HL-2270DW%20series?serial=E2N509061";
+          model = "drv://sample.drv/generic.ppd";
+          ppdOptions = {
+            PageSize = "US Letter";
+            Resolution = "600dpi";
+          };
+        }
+      ];
+      ensureDefaultPrinter = "Brother HL-2270DW Series";
+    };
   };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
