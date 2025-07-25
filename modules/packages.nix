@@ -25,7 +25,7 @@
       browsing = true;
       defaultShared = true;
     };
-    samba = {
+/*     samba = {
       enable = true;
       package = pkgs.sambaFull;
       openFirewall = true;
@@ -51,12 +51,12 @@
     samba-wsdd = {
       enable = true;
       openFirewall = true;
-    };
+    }; */
   };
 
-  systemd.tmpfiles.rules = [
+/*   systemd.tmpfiles.rules = [
     "d /var/spool/samba 1777 root root -"
-  ];
+  ]; */
 
 
 }
