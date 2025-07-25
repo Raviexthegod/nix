@@ -261,8 +261,9 @@
     spice-protocol
     win-virtio
     win-spice
-   adwaita-icon-theme
+    adwaita-icon-theme
     bison
+    dnsmasq
     kdePackages.kde-cli-tools
     kdePackages.qtstyleplugin-kvantum
     kdePackages.sddm-kcm
