@@ -96,6 +96,7 @@
     podman = {
       enable = true;
       dockerCompat = true;
+      defaultNetwork.settings = { dns_enabled = true; };
     };
 
     waydroid.enable = true;
@@ -264,6 +265,10 @@
     win-spice
     adwaita-icon-theme
     bison
+    dive
+    podman-tui
+    podman-desktop
+    docker-compose
     dnsmasq
     kdePackages.kde-cli-tools
     kdePackages.qtstyleplugin-kvantum
