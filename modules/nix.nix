@@ -20,12 +20,6 @@
     automatic = true;
     dates = "weekly";
   };
-  nix.gc = {
-    automatic = true;
-    persistent = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
   system.autoUpgrade = {
     allowReboot = true;
     enable = true;
