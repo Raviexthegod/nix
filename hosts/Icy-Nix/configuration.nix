@@ -66,7 +66,7 @@
     clean.enable = true;
   };
 
-  # Ser default user shell to ZSH
+  # Ser default user shell to nushell
   users.defaultUserShell = pkgs.nushell;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
