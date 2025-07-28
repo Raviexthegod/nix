@@ -8,9 +8,6 @@
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   nixpkgs = {
-    overlays = [
-      inputs.millennium.overlays.default
-    ];
     config = {
       allowUnfree = true;
       permittedInsecurePackages = [
