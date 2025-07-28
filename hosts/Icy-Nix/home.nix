@@ -3,7 +3,7 @@
 
   home.username = "raviex";
   home.homeDirectory = "/home/raviex";
-  home.shell.enableZshIntegration = true;
+  home.shell.enableNushellIntegraton = true;
   programs.git = {
     enable = true;
     userEmail = "xaviercoffey0@gmail.com";
@@ -11,14 +11,10 @@
   };
 
   home.packages = [
-    pkgs.zsh
-    pkgs.zsh-autocomplete
     pkgs.eza
     pkgs.bat
     pkgs.zoxide
-    pkgs.zsh-powerlevel10k
-    pkgs.nerd-fonts.meslo-lg
-    pkgs.zsh-syntax-highlighting
+    pkgs.nerd-fonts.fira-code
     pkgs.hstr
     pkgs.pay-respects
     pkgs.git
@@ -43,35 +39,77 @@
       enableGitIntegration = true;
       font.name = "MesloLGS NF";
       font.package = pkgs.meslo-lgs-nf;
-      shellIntegration.enableZshIntegration = true;
+      shellIntegration.enableNushellIntegraton = true;
       themeFile = "GitHub_Dark_High_Contrast";
     };
 
-    #mangohud = {
-    #  enable = true;
-    #  enableSessionWide = false;
-    #};
-
     nix-index = {
       enable = true;
-      enableZshIntegration = true;
+      enableNushellIntegraton = true;
     };
 
     nix-your-shell = {
       enable = true;
-      enableZshIntegration = true;
+      enableNushellIntegration = true;
     };
 
     pay-respects = {
       enable = true;
-      enableZshIntegration = true;
+      enableNushellIntegration = true;
     };
 
     zoxide = {
       enable = true;
-      enableZshIntegration = true;
+      enableNushellIntegraton = true;
     };
 
+
+    nushell = {
+      enable = true;
+      extraConfig = ''
+        let carapace_completer = {|spans|
+        carapace $spans.0 nushell ... $spans | from json
+        }
+        $env.config = {
+          show_banner: false,
+          completions: {
+          case_sensetive: false
+          quick: true
+          partial: true
+          algorithm: "fuzzy"
+          external: {
+            enable: true
+            max_results: 100
+            completer: $carapace_completer
+            }
+          }
+        }
+        $env.PATH = ($env.PATH |
+        split row (char esep) |
+        prepend /home/raviex/.apps
+        append /usr/bin/env
+        )
+      '';
+      shellAliases = {
+        ls = "eza -lah --git";
+        cat = "bat";
+        cd = "z";
+        fr = "nh os switch /home/raviex/.config/nixos --hostname Icy-Nix --update";
+        man = "batman";
+        grep = "batgrep";
+      };
+      plugins = with pkgs.nushellPlugins; [units dbus gstat highlight query];
+    };
+    carapace = {
+      enable = true;
+      enableNushellIntegration = true;
+    };
+
+    starship = {
+      enable = true;
+      enableNushellIntegration = true;
+      settings = lib.importTOML ./starship.toml;
+    };
     zsh = {
       enable = true;
       completionInit = true;
