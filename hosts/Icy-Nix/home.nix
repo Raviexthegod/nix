@@ -3,6 +3,7 @@
 
   home.username = "raviex";
   home.homeDirectory = "/home/raviex";
+  home.shell.enableNushellIntegraton = true;
   programs.git = {
     enable = true;
     userEmail = "xaviercoffey0@gmail.com";
@@ -33,8 +34,18 @@
 
   programs = {
 
+    kitty = {
+      enable = true;
+      enableGitIntegration = true;
+      font.name = "MesloLGS NF";
+      font.package = pkgs.meslo-lgs-nf;
+      shellIntegration.enableNushellIntegraton = true;
+      themeFile = "GitHub_Dark_High_Contrast";
+    };
+
     nix-index = {
       enable = true;
+      enableNushellIntegraton = true;
     };
 
     nix-your-shell = {
@@ -49,7 +60,7 @@
 
     zoxide = {
       enable = true;
-      enableNushellIntegration = true;
+      enableNushellIntegraton = true;
     };
 
 
@@ -87,7 +98,7 @@
         man = "batman";
         grep = "batgrep";
       };
-      plugins = with pkgs.nushellPlugins; [units gstat highlight query];
+      plugins = with pkgs.nushellPlugins; [units dbus gstat highlight query];
     };
     carapace = {
       enable = true;
