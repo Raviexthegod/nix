@@ -63,11 +63,10 @@
   programs.nh = {
     enable = true;
     flake = "github:Raviexthegod/nix#Icy-Nix";
-    clean.enable = true;
   };
 
   # Ser default user shell to ZSH
-  users.defaultUserShell = pkgs.nushell;
+  users.defaultUserShell = pkgs.zsh;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.raviex = {
@@ -83,7 +82,7 @@
       "adbusers"
       "wireshark"
     ];
-    shell = pkgs.nushell;
+    shell = pkgs.zsh;
   };
 
   # Enable appimages
@@ -178,7 +177,7 @@
     ];
   }; 
   programs.kdeconnect.enable = true;
-  programs.nushell.enable = true;
+  programs.zsh.enable = true;
 
   # enable QEMU frontend
   programs.virt-manager.enable = true;

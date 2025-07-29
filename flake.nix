@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    millennium.url = "git+https://github.com/SteamClientHomebrew/Millennium?ref=next";
   };
 
   outputs =
