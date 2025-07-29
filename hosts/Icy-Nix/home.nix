@@ -110,7 +110,41 @@
       enableNushellIntegration = true;
       settings = lib.importTOML ./starship.toml;
     };
-
+    zsh = {
+      enable = true;
+      completionInit = true;
+      syntaxHighlighting.enable = true;
+      plugins = [
+        {
+          name = "powerlevel10k";
+          src = pkgs.zsh-powerlevel10k;
+          file = "/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        }
+      ];
+      initContent = ''source ~/.p10k.zsh'';
+      oh-my-zsh = {
+        enable = true;
+        plugins = [
+          "eza"
+          "git"
+          "sudo"
+          "vscode"
+          "node"
+          "fzf"
+          "systemd"
+          "aliases"
+          "zoxide"
+        ];
+      };
+      shellAliases = {
+        ls = "eza -lah --git";
+        cat = "bat";
+        cd = "z";
+        fr = "nh os switch /home/raviex/.config/nixos --hostname Icy-Nix --update";
+        man = "batman";
+        grep = "batgrep";
+      };
+    };
   };
 
   home.stateVersion = "25.11";
