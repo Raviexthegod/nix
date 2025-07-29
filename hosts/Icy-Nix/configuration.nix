@@ -178,6 +178,7 @@
     ];
   }; 
   programs.kdeconnect.enable = true;
+  programs.nushell.enable = true;
 
   # enable QEMU frontend
   programs.virt-manager.enable = true;
