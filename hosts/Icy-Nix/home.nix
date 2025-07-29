@@ -76,7 +76,7 @@
         $env.PATH = ($env.PATH |
         split row (char esep) |
         prepend /home/raviex/.apps
-        prepend /usr/bin/env
+        append /usr/bin/env
         )
       '';
       shellAliases = {
