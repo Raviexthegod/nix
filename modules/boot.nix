@@ -10,6 +10,12 @@
         useOSProber = true;
         default = "saved";
         memtest86.enable = true;
+        copyKernels = true;
+        extraEntries = ''
+          menuentry "Reboot to Firmware Setup" {
+            fwsetup
+          }
+        '';
       };
     };
 
