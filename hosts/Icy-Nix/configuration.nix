@@ -15,6 +15,7 @@
     ../../modules/nix.nix
     ../../modules/packages.nix
     ../../modules/power.nix
+    ../../modules/security.nix
     ../../modules/Steam.nix
   ];
 
@@ -81,6 +82,7 @@
       "kvm"
       "adbusers"
       "wireshark"
+      "tss"
     ];
     shell = pkgs.zsh;
   };
@@ -276,6 +278,9 @@
     kdePackages.ksystemlog
     kdePackages.kcalc
     kdePackages.kcolorscheme
+    kdePackages.filelight
+    kdePackages.dolphin-plugins
+    kdotool
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
