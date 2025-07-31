@@ -5,7 +5,6 @@
       enable = true;
       enableCache = true;
       killUnconfinedConfinables = true;
-      confineSUIDApplications = true;
     };
     tpm2 = {
       enable = true;
