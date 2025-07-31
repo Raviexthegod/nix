@@ -131,6 +131,7 @@
     dumpcap.enable = true;
     usbmon.enable = true;
   };
+  programs.xwayland.enable = true;
   programs.git.config = {pull.rebase = false;};
   programs.partition-manager.enable = true;
   programs.adb.enable = true;
