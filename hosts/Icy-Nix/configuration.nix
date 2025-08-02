@@ -46,6 +46,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
@@ -135,6 +136,10 @@
   programs.git.config = {pull.rebase = false;};
   programs.partition-manager.enable = true;
   programs.adb.enable = true;
+  systemd.packages = with pkgs; [
+    lact
+  ];
+  systemd.services.lactd.wantedBy = [ "multi-user.target" ];
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
@@ -224,6 +229,7 @@
     })
     lutris
     qemu
+    lact
     quickemu
     swtpm
     heroic
