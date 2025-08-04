@@ -16,6 +16,7 @@
     ../../modules/nix.nix
     ../../modules/packages.nix
     ../../modules/power.nix
+    ../../modules/security.nix
     ../../modules/Steam.nix
   ];
 
