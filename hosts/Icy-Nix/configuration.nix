@@ -174,6 +174,7 @@
         xorg.libXrandr
         xorg.libxcb
         xorg_sys_opengl
+        glfw-wayland-minecraft
       ];
     };
     kdeconnect.enable = true;
