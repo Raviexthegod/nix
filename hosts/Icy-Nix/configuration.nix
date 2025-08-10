@@ -109,81 +109,84 @@
   systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
 
   # Enable programs and services
-  services = {
-    fwupd.enable = true;
-    ollama = {
-      enable = true;
-      acceleration = "rocm";
-      loadModels = ["deepseek-r1:latest"];
-    };
-    open-webui.enable = true;
+  services.fwupd.enable = true;
+  services.ollama = {
+    enable = true;
+    acceleration = "rocm";
+    loadModels = ["deepseek-r1:latest"];
   };
-
-  programs = {
-    wireshark = {
-      enable = true;
-      package = pkgs.wireshark-qt;
-      dumpcap.enable = true;
-      usbmon.enable = true;
+  services.open-webui.enable = true;
+  services.tor = {
+    enable = true;
+    settings = {
+      UseBridges = true;
+      ClientUseIPv4 = true;
+      ClientUseIPv6 = true;
+      ClientTransportPlugin = "obfs4 exec ${pkgs.obfs4}/bin/lyrebird";
+      Bridge = "obfs4 IP:ORPort [fingerprint]";
     };
-    xwayland.enable = true;
-    git = {
-      enable = true;
-      config = {pull.rebase = false;};
-    };
-    partition-manager.enable = true;
-    adb.enable = true;
-    nix-ld = {
-      enable = true;
-      libraries = with pkgs; [
-        # List by default
-        zlib
-        zstd
-        stdenv.cc.cc
-        curl
-        openssl
-        attr
-        libssh
-        bzip2
-        libxml2
-        acl
-        libsodium
-        util-linux
-        xz
-        systemd
-        nss_latest
-        nspr
-        dbus
-        at-spi2-atk
-        cups
-        libdrm
-        glib
-        gtk2
-        gtk3
-        pango
-        cairo
-        libgbm
-        expat
-        libxkbcommon
-        alsa-lib-with-plugins
-        xorg.libX11
-        xorg.libXcomposite
-        xorg.libXdamage
-        xorg.libXext
-        xorg.libXfixes
-        xorg.libXrandr
-        xorg.libxcb
-        xorg_sys_opengl
-      ];
-    };
-    kdeconnect.enable = true;
-    zsh.enable = true;
   };
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark-qt;
+    dumpcap.enable = true;
+    usbmon.enable = true;
+  };
+  programs.xwayland.enable = true;
+  programs.git.config = {pull.rebase = false;};
+  programs.partition-manager.enable = true;
+  programs.adb.enable = true;
   systemd.packages = with pkgs; [
     lact
   ];
   systemd.services.lactd.wantedBy = [ "multi-user.target" ];
-  
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      # List by default
+      zlib
+      zstd
+      stdenv.cc.cc
+      curl
+      openssl
+      attr
+      libssh
+      bzip2
+      libxml2
+      acl
+      libsodium
+      util-linux
+      xz
+      systemd
+      nss_latest
+      nspr
+      dbus
+      at-spi2-atk
+      cups
+      libdrm
+      glib
+      gtk2
+      gtk3
+      pango
+      cairo
+      libgbm
+      expat
+      libxkbcommon
+      alsa-lib-with-plugins
+      xorg.libX11
+      xorg.libXcomposite
+      xorg.libXdamage
+      xorg.libXext
+      xorg.libXfixes
+      xorg.libXrandr
+      xorg.libxcb
+      xorg_sys_opengl
+    
+    ];
+  }; 
+  programs.kdeconnect.enable = true;
+  programs.zsh.enable = true;
+
   # enable QEMU frontend
   programs.virt-manager.enable = true;
   users.groups.libvirtd.members = [ "raviex" ];
@@ -241,7 +244,6 @@
     ventoy-full-qt
     sbctl
     tor-browser-bundle-bin
-    ente-auth
     cryptomator
     ntfs3g
     qgis
@@ -269,10 +271,6 @@
     spice
     spice-protocol
     win-virtio
-    smartmontools
-    udisks
-    btrfs-assistant
-    btrfs-progs
     win-spice
     adwaita-icon-theme
     bison
