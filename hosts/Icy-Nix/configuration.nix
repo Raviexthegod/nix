@@ -116,7 +116,6 @@
       acceleration = "rocm";
       loadModels = ["deepseek-r1:latest"];
     };
-    open-webui.enable = true;
   };
 
   programs = {
@@ -259,8 +258,6 @@
     tmux
     fwupd
     phoronix-test-suite
-    openssl
-    python314Full
     flex
     bc
     distrobox
