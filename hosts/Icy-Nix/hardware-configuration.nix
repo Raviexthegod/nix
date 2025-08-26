@@ -31,13 +31,13 @@
   fileSystems."/mnt/games" = {
     device = "/dev/disk/by-partuuid/b019506c-4b81-4ddd-a16b-17530f7f3321";
     fsType = "ext4";
-    options = [ "nofail" "rw" "uid=1000" "gid=1000" "dmask=007" "fmask=117" ];
+    options = [ "nofail" "rw" ];
   };
 
   fileSystems."/mnt/misc" = {
     device = "/dev/disk/by-partuuid/2f592c0d-eca8-4cf0-841f-963d0f2c5f17";
     fsType = "ext4";
-    options = [ "nofail" "rw" "uid=1000" "gid=1000" "dmask=007" "fmask=117"];
+    options = [ "nofail" "rw" ];
   };
 
   fileSystems."/boot" = {
