@@ -24,14 +24,14 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/4f53d250-fa33-4430-8c11-2c0b7494d15f";
+    device = "/dev/disk/by-uuid/633da642-762d-406c-b0f2-586f8cfc8103";
     fsType = "ext4";
   };
 
-  fileSystems."/mnt/windows" = {
-    device = "/dev/disk/by-partuuid/e13b5cc2-f0b0-45ba-9750-6b764ebd7dac";
+  fileSystems."/mnt/games" = {
+    device = "/dev/disk/by-partuuid/94bbb5f8-9ec7-4bdc-baf6-941c3b391c93";
     fsType = "ntfs-3g";
-    options = [ "nofail" "rw" "uid=1000" "gid=1000" "dmask=007" "fmask=117"];
+    options = [ "nofail" "rw" "uid=1000" "gid=1000" "dmask=007" "fmask=117" ];
   };
 
   fileSystems."/mnt/misc" = {
@@ -41,7 +41,7 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/FAEC-908D";
+    device = "/dev/disk/by-uuid/F6AA-4721";
     fsType = "vfat";
     options = [
       "fmask=0077"
@@ -50,7 +50,7 @@
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/42f1a96a-1f22-426a-9ad3-f96b3cccb285"; }
+    { device = "/dev/disk/by-uuid/e2952089-8168-4c51-98be-03bb8b9de3bb"; }
   ];
 
   hardware = {
