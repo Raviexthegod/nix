@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -14,6 +18,7 @@
       self,
       nixpkgs,
       home-manager,
+      winapps,
       ...
     }:
     {
@@ -30,6 +35,19 @@
               home-manager.useUserPackages = true;
               home-manager.users.raviex = ./hosts/Icy-Nix/home.nix;
             }
+            (
+              {
+                pkgs,
+                system ? pkgs.system,
+                ...
+              }:
+              {
+                environment.systemPackages = [
+                  winapps.packages."${system}".winapps
+                  winapps.packages."${system}".winapps-launcher
+                ];
+              }
+            )
           ];
         };
         Goblin-Archives = nixpkgs.lib.nixosSystem {
