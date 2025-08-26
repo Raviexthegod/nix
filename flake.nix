@@ -38,13 +38,12 @@
             (
               {
                 pkgs,
-                system ? pkgs.system,
                 ...
               }:
               {
                 environment.systemPackages = [
-                  winapps.packages."${system}".winapps
-                  winapps.packages."${system}".winapps-launcher
+                  winapps.packages."${pkgs.system}".winapps
+                  winapps.packages."${pkgs.system}".winapps-launcher
                 ];
               }
             )
