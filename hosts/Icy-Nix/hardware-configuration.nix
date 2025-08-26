@@ -29,13 +29,13 @@
   };
 
   fileSystems."/mnt/games" = {
-    device = "/dev/disk/by-partuuid/94bbb5f8-9ec7-4bdc-baf6-941c3b391c93";
+    device = "/dev/disk/by-uuid/58bd43d2-99ff-49be-8123-39a96be7f7b4";
     fsType = "ntfs-3g";
     options = [ "nofail" "rw" "uid=1000" "gid=1000" "dmask=007" "fmask=117" ];
   };
 
   fileSystems."/mnt/misc" = {
-    device = "/dev/disk/by-partuuid/01058ea6-ae64-438f-8591-6d7719bfacee";
+    device = "/dev/disk/by-uuid/5135c988-96b3-4944-a090-ccda7cde39a3";
     fsType = "ntfs-3g";
     options = [ "nofail" "rw" "uid=1000" "gid=1000" "dmask=007" "fmask=117"];
   };
