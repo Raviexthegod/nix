@@ -82,21 +82,6 @@
         driversi686Linux.amdvlk
       ];
     };
-    printers = {
-      ensurePrinters = [
-        {
-          name = "Brother_HL-2270DW_Series";
-          location = "Home";
-          deviceUri = "usb://Brother/HL-2270DW%20series?serial=E2N509061";
-          model = "drv://sample.drv/generic.ppd";
-          ppdOptions = {
-            PageSize = "US Letter";
-            Resolution = "600dpi";
-          };
-        }
-      ];
-      ensureDefaultPrinter = "Brother_HL-2270DW_Series";
-    };
   };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
