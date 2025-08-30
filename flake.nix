@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nix-alien.url = "github:thiagokokada/nix-alien";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,14 +20,15 @@
       nixpkgs,
       home-manager,
       winapps,
+      nix-alien,
       ...
     }:
     {
 
       nixosConfigurations = {
-        Icy-Nix = nixpkgs.lib.nixosSystem {
+        Icy-Nix = nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs system self; };
           modules = [
             ./hosts/Icy-Nix/configuration.nix
             home-manager.nixosModules.home-manager
@@ -38,12 +40,15 @@
             (
               {
                 pkgs,
+                self,
+                system,
                 ...
               }:
               {
-                environment.systemPackages = [
+                environment.systemPackages = with self.inputs.nix-alien.packages.${system}; [
                   winapps.packages."${pkgs.system}".winapps
                   winapps.packages."${pkgs.system}".winapps-launcher
+                  nix-alien
                 ];
               }
             )
