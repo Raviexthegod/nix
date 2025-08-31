@@ -45,10 +45,10 @@
                 ...
               }:
               {
-                environment.systemPackages = with self.inputs.nix-alien.packages.${system}; [
+                environment.systemPackages = [
                   winapps.packages."${pkgs.system}".winapps
                   winapps.packages."${pkgs.system}".winapps-launcher
-                  nix-alien
+                  self.inputs.nix-alien.packages.${system}.nix-alien
                 ];
               }
             )
