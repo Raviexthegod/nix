@@ -219,6 +219,11 @@
     openrgb-with-all-plugins
     vesktop
     vkbasalt-cli
+    nix-init
+    nix-gitignore
+    nix-janitor
+    nix-health
+    nix-inspect
     flatpak
     kdePackages.kdeplasma-addons
     atlauncher
