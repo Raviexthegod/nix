@@ -136,6 +136,11 @@
     };
     partition-manager.enable = true;
     adb.enable = true;
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
