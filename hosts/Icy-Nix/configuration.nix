@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -17,6 +17,7 @@
     ../../modules/power.nix
     ../../modules/security.nix
     ../../modules/Steam.nix
+    "${inputs.nix-mineral}/nix-mineral.nix"
   ];
 
   # Define what documentation is enabled.
