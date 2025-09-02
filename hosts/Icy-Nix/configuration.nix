@@ -220,7 +220,6 @@
     vesktop
     vkbasalt-cli
     nix-init
-    nix-gitignore
     nix-janitor
     nix-health
     nix-inspect
