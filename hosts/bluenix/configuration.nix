@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -17,7 +17,7 @@
     ../../modules/packages.nix
     ../../modules/power.nix
     ../../modules/security.nix
-    ../../modules/Steam.nix
+    "${inputs.nix-mineral}/nix-mineral.nix"
   ];
 
   # Define what documentation is enabled.
@@ -64,7 +64,7 @@
 
   programs.nh = {
     enable = true;
-    flake = "github:Raviexthegod/nix#Icy-Nix";
+    flake = "github:Raviexthegod/nix#bluenix";
   };
 
   # Ser default user shell to ZSH
@@ -100,13 +100,13 @@
   services.fwupd.enable = true;
   services.tor = {
     enable = true;
-    settings = {
-      UseBridges = true;
-      ClientUseIPv4 = true;
-      ClientUseIPv6 = true;
-      ClientTransportPlugin = "obfs4 exec ${pkgs.obfs4}/bin/lyrebird";
-      Bridge = "obfs4 IP:ORPort [fingerprint]";
+    client = {
+      enable = true;
+      dns.enable = true;
     };
+    openFirewall = true;
+    torsocks.enable = true;
+    torsocks.fasterServer = true;
   };
   programs.partition-manager.enable = true;
   programs.adb.enable = true;
@@ -195,15 +195,10 @@
     vkbasalt-cli
     flatpak
     kdePackages.kdeplasma-addons
-    atlauncher
-    prismlauncher
-    lutris
     qemu
     quickemu
     swtpm
-    heroic
     vulkan-tools
-    bs-manager
     protonplus
     nexusmods-app-unfree
     neofetch
