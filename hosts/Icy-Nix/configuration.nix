@@ -113,6 +113,11 @@
   # Enable UEFI support for Qemu
   systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
 
+  # Set custom udev rules
+  services.udev.extraRules = ''
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+  '';
+
   # Enable programs and services
   services = {
     fwupd.enable = true;
@@ -124,6 +129,10 @@
   };
 
   programs = {
+    alvr = {
+      enable = true;
+      openFirewall = true;
+    };
     wireshark = {
       enable = true;
       package = pkgs.wireshark-qt;
@@ -241,6 +250,7 @@
     })
     lutris
     qemu
+    vial
     lact
     quickemu
     swtpm
