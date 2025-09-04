@@ -73,15 +73,6 @@
       legacySupport.enable = true;
       opencl.enable = true;
     };
-    graphics = {
-      enable = true;
-      extraPackages = with pkgs; [
-        amdvlk
-      ];
-      extraPackages32 = with pkgs; [
-        driversi686Linux.amdvlk
-      ];
-    };
   };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
