@@ -220,8 +220,34 @@
   };
   services.spice-vdagentd.enable = true;
 
+  # Configure VR 
+  services.wivrn = {
+    enable = true;
+    openFirewall = true;
+    defaultRuntime = true;
+    autoStart = true;
+    config = {
+      enable = true;
+      json = {
+        scale = 0.5;
+        bitrate = 100000000;
+        encoders = [
+          {
+            encoder = "vaapi";
+            codec = "HEVC";
+            width = 1.0;
+            height = 1.0;
+            offset_x = 0.0;
+            offset_y = 0.0;
+          }
+        ];
+        application = [ pkgs.wlx-overlay-s ];
+      }
+      ;
+    };
+  };
 
-  # List packages installed in system profile. To search, run:
+  # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     vscode
     wget
