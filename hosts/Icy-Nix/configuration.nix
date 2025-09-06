@@ -276,7 +276,7 @@
     })
     lutris
     qemu
-    vial
+    via
     lact
     quickemu
     swtpm
