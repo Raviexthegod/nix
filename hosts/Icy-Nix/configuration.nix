@@ -288,6 +288,7 @@
     unixtools.netstat
     vulkan-tools
     bs-manager
+    inkscape-with-extensions
     protonplus
     nexusmods-app-unfree
     neofetch
