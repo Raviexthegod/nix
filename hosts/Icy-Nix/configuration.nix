@@ -246,6 +246,8 @@
       ;
     };
   };
+  hardware.opentabletdriver.daemon.enable = true;
+  hardware.opentabletdriver.enable = true;
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
