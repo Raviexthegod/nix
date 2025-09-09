@@ -277,6 +277,7 @@
     lutris
     qemu
     via
+    blender
     lact
     quickemu
     swtpm
