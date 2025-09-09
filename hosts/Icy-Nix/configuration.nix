@@ -292,7 +292,6 @@
     nexusmods-app-unfree
     neofetch
     zip
-    ventoy-full-qt
     sbctl
     tor-browser-bundle-bin
     ente-auth
