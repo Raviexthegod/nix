@@ -11,7 +11,7 @@
     config = {
       allowUnfree = true;
       permittedInsecurePackages = [
-        "ventoy-qt5-1.1.0"
+        "ventoy-qt5"
       ];
     };
   };
