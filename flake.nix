@@ -79,7 +79,6 @@
             (
               {
                 pkgs,
-                self,
                 system,
                 ...
               }:
