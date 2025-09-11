@@ -232,7 +232,6 @@
     protonplus
     neofetch
     zip
-    ventoy-full-qt
     sbctl
     tor-browser-bundle-bin
     cryptomator
@@ -252,7 +251,7 @@
     fwupd
     phoronix-test-suite
     openssl
-    python314Full
+    python314
     flex
     bc
     bison
