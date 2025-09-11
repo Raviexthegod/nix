@@ -65,9 +65,9 @@
             ./hosts/Goblin-Archives/configuration.nix
           ];
         };
-        bluenix = nixpkgs.lib.nixosSystem {
+        bluenix = nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs system self; };
           modules = [
             ./hosts/bluenix/configuration.nix
             home-manager.nixosModules.home-manager
@@ -79,6 +79,7 @@
             (
               {
                 pkgs,
+                self,
                 system,
                 ...
               }:
