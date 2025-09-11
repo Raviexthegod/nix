@@ -104,10 +104,19 @@
       enable = true;
       dns.enable = true;
     };
+    settings.DNSPort = [{
+      addr = "127.0.0.1";
+      port = 53;
+    }];
+    
     openFirewall = true;
     torsocks.enable = true;
-    torsocks.fasterServer = true;
   };
+  services.resolved = {
+    enable = true;
+    fallbackDns = [ "8.8.8.8" "2001:4860:4860::8844" ];
+  };
+  networking.nameservers = [ "127.0.0.1" ];
   programs.partition-manager.enable = true;
   programs.adb.enable = true;
   programs.nix-ld = {
@@ -175,6 +184,12 @@
         }).fd
       ];
     };
+  }; 
+  programs.wireshark = {
+    enable = true;
+    dumpcap.enable = true;
+    usbmon.enable = true;
+    package = pkgs.wireshark-qt;
   };
 
   # List packages installed in system profile. To search, run:
@@ -183,14 +198,29 @@
     wget
     brave
     bottles
+    rclone
+    opentabletdriver
+    rclone-ui
     nixfmt-rfc-style
     nix-output-monitor
     nvd
     nixd
+    gdrive3
     nixos-generators
+    inkscape-with-extensions
+    kdePackages.gear.kio-gdrive
     libreoffice
     obsidian
+    protonvpn-gui
+    proton-pass
     openrgb-with-all-plugins
+    kdePackages.kcmutils
+    kdePackages.kaccounts-integration
+    kdePackages.kaccounts-providers
+    kdePackages.signond
+    kdePackages.signon-kwallet-extension
+    kdePackages.kio-admin
+    kdePackages.kio-fuse
     vesktop
     vkbasalt-cli
     flatpak
@@ -200,7 +230,6 @@
     swtpm
     vulkan-tools
     protonplus
-    nexusmods-app-unfree
     neofetch
     zip
     ventoy-full-qt
