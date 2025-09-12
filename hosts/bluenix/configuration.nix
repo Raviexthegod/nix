@@ -82,6 +82,7 @@
       "gamemode"
       "kvm"
       "adbusers"
+      "wireshark"
     ];
     shell = pkgs.zsh;
   };
