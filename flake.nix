@@ -72,9 +72,9 @@
             ./hosts/Goblin-Archives/configuration.nix
           ];
         };
-        bluenix = nixpkgs.lib.nixosSystem {
+        bluenix = nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs system self; };
           modules = [
             ./hosts/bluenix/configuration.nix
             home-manager.nixosModules.home-manager
@@ -83,6 +83,21 @@
               home-manager.useUserPackages = true;
               home-manager.users.raviex = ./hosts/bluenix/home.nix;
             }
+            (
+              {
+                pkgs,
+                self,
+                system,
+                ...
+              }:
+              {
+                environment.systemPackages = [
+                  winapps.packages."${pkgs.system}".winapps
+                  winapps.packages."${pkgs.system}".winapps-launcher
+                  self.inputs.nix-alien.packages.${system}.nix-alien
+                ];
+              }
+            )
           ];
         };
       };
