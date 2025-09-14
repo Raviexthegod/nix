@@ -129,10 +129,7 @@
   };
 
   programs = {
-    alvr = {
-      enable = true;
-      openFirewall = true;
-    };
+
     wireshark = {
       enable = true;
       package = pkgs.wireshark-qt;
@@ -241,13 +238,14 @@
             offset_y = 0.0;
           }
         ];
-        application = [ pkgs.wlx-overlay-s ];
       }
       ;
     };
   };
   hardware.opentabletdriver.daemon.enable = true;
   hardware.opentabletdriver.enable = true;
+  hardware.keyboard.qmk.enable = true;
+  hardware.xone.enable = true;
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
