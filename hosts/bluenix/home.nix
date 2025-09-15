@@ -10,23 +10,29 @@
     userName = "Raviexthegod";
   };
 
-  home.packages = [
-    pkgs.zsh
-    pkgs.zsh-autocomplete
-    pkgs.eza
-    pkgs.bat
-    pkgs.zoxide
-    pkgs.zsh-powerlevel10k
-    pkgs.nerd-fonts.meslo-lg
-    pkgs.zsh-syntax-highlighting
-    pkgs.hstr
-    pkgs.pay-respects
-    pkgs.git
-    pkgs.fzf
-    pkgs.bat-extras.batgrep
-    pkgs.bat-extras.batman
-    pkgs.ripgrep
-    pkgs.mangojuice
+  home.packages = with pkgs; [
+    zsh
+    zsh-autocomplete
+    zsh-forgit
+    zsh-fzf-history-search
+    zsh-fzf-tab
+    zsh-nix-shell
+    zsh-abbr
+    zsh-
+    eza
+    bat
+    zoxide
+    zsh-powerlevel10k
+    nerd-fonts.meslo-lg
+    zsh-syntax-highlighting
+    hstr
+    pay-respects
+    git
+    fzf
+    bat-extras.batgrep
+    bat-extras.batman
+    ripgrep
+    mangojuice
   ];
 
   dconf.settings = {
