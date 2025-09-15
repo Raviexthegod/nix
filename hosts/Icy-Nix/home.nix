@@ -88,8 +88,8 @@
           file = "/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
         }
       ];
-      initContent = ''source ~/.p10k.zsh'';
-      initExtra = ''
+      initContent = ''
+        source ~/.p10k.zsh
         source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
       '';
       oh-my-zsh = {
