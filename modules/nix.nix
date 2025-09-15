@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{inputs, pkgs, ...}: {
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -6,6 +6,8 @@
   ];
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+
+  nix.package = pkgs.nixVersions.latest;
 
   nixpkgs = {
     config = {
