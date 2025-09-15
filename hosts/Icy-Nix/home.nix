@@ -89,7 +89,6 @@
         }
       ];
       initContent = ''source ~/.p10k.zsh'';
-      zsh-autoenv.enable = true;
       initExtra = ''
         source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
       '';
