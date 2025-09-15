@@ -18,7 +18,6 @@
     zsh-fzf-tab
     zsh-nix-shell
     zsh-abbr
-    zsh-
     eza
     bat
     zoxide
