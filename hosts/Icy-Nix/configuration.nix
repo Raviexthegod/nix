@@ -27,7 +27,7 @@
   networking.hostName = "Icy-Nix"; # Define your hostname.
 
   # Set trusted users
-  nix.trustedUsers = [ "root" "raviex" ];
+  nix.settings.trusted-users = [ "root" "raviex" "@wheel" ];
 
   # Set your time zone.
   time.timeZone = "America/New_York";
