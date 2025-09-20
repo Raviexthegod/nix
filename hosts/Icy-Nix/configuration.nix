@@ -124,6 +124,20 @@
       acceleration = "rocm";
       loadModels = ["deepseek-r1:latest"];
     };
+    tor = {
+      enable = true;
+      client = {
+        enable = true;
+        dns.enable = true;
+      };
+      settings.DNSPort = [{
+        addr = "127.0.0.1";
+        port = 53;
+      }];
+
+      openFirewall = true;
+      torsocks.enable = true;
+    };
   };
 
   programs = {
@@ -244,6 +258,7 @@
   hardware.opentabletdriver.enable = true;
   hardware.keyboard.qmk.enable = true;
   hardware.xone.enable = true;
+  
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
@@ -259,6 +274,7 @@
     libreoffice
     obsidian
     openrgb-with-all-plugins
+    lxqt.libdbusmenu-lxqt
     vesktop
     vkbasalt-cli
     nix-init
