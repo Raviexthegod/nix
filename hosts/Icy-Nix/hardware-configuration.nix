@@ -58,7 +58,6 @@
       wireless.enable = true;
       wireless.enableGraphical = true;
     };
-    ckb-next.enable = true;
     bluetooth = {
       enable = true;
       powerOnBoot = true;
